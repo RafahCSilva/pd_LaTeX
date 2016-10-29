@@ -258,7 +258,7 @@
 
 %\begin{resumo}
 \chapter*[Resumo]{Resumo}
- Resolver exercícios é fundamental para um aluno fixar os conceitos apresentados em aula. Por outro lado, ter seus exercícios corrigidos também é muito importante, para que ele possa avaliar o seu aprendizado. Na UFABC, a disciplina de Linguagens Formais e Autômatos contempla vários exercícios que admitem infinitas respostas, o que torna a correção deles praticamente impossível, principalmente quando as turmas são grandes. O objetivo deste projeto é a criação e implementação de um sistema para aplicação e correção automática de exercícios envolvendo autômatos finitos determinísticos. Através do estudo de métodos e algoritmos presentes na literatura, será possível implementar o teste de equivalência entre o autômato-resposta do aluno e o autômato-gabarito previamente armazenado no banco de dados. E ao final do projeto, o sistema será utilizado em caráter experimental numa turma da UFABC da disciplina de Linguagens Formais e Autômatos, afim de testar a sua qualidade. E ao final da disciplina, a nota que os alunos obterão ao revolver os exercícios do sistema ajudarão a compor o conceito final de cada um na disciplina.
+ \noindent Resolver exercícios é fundamental para um aluno fixar os conceitos apresentados em aula. Por outro lado, ter seus exercícios corrigidos também é muito importante, para que ele possa avaliar o seu aprendizado. Na UFABC, a disciplina de Linguagens Formais e Autômatos contempla vários exercícios que admitem infinitas respostas, o que torna a correção deles praticamente impossível, principalmente quando as turmas são grandes. O objetivo deste projeto é a criação e implementação de um sistema para aplicação e correção automática de exercícios envolvendo autômatos finitos determinísticos. Através do estudo de métodos e algoritmos presentes na literatura, será possível implementar o teste de equivalência entre o autômato-resposta do aluno e o autômato-gabarito previamente armazenado no banco de dados. E ao final do projeto, o sistema será utilizado em caráter experimental numa turma da UFABC da disciplina de Linguagens Formais e Autômatos, afim de testar a sua qualidade. E ao final da disciplina, a nota que os alunos obterão ao revolver os exercícios do sistema ajudarão a compor o conceito final de cada um na disciplina.
 
 \textbf{Palavras-chave}: autômato finito, equivalência de autômatos, minimização de autômato, programação para web.
 
@@ -312,7 +312,7 @@ No autômato da Figura~\ref{fig:aut01}, temos $Q = \{S_1, S_2\}$, $\Sigma = \{a,
 
 Nesse exemplo, se o AFD $M_1$ é alimentado com a palavra \textbf{\texttt{aabab}}, ele irá começar no estado $S_1$ e irá percorrer os estados $S_2$, $S_1$, $S_1$, $S_2$, $S_2$ nesta ordem, e irá rejeitar a palavra dada (pois o último estado $S_2 \not\in F$). Se, para uma outra palavra $w$, a simulação tivesse terminado em $S_1$ (que pertence a $F$) diríamos que o autômato aceita a palavra $w$. Mais formalmente, se $M_1 = (Q, \Sigma, \delta, s, F)$ é um autômato finito determinístico, dizemos que $M_1$ \emph{aceita} $w$ se $\hat{\delta}(s, w) \in F$ e que $M_1$ \emph{rejeita} $w$ caso contrário.
 
-A \emph{linguagem reconhecida} por um autômato $M_1 = (Q, \Sigma, \delta, s, F)$ é o conjunto de palavras que são aceitas por esse autômato, ou seja, é definida pelo conjunto \[ L(M_1) = \{w \in \Sigma^* \colon \hat{\delta}(s, w) \in F \}.  \] No exemplo da Figura~\ref{fig:aut01} acima, a linguagem reconhecida por por $M_1$ é $L(M_1) = \{w \in \Sigma^* :  w$  tem número par de símbolos $\mathtt{a}\}$.
+A \emph{linguagem reconhecida} por um autômato $M_1 = (Q, \Sigma, \delta, s, F)$ é o conjunto de palavras que são aceitas por esse autômato, ou seja, é definida pelo conjunto $ L(M_1) = \{w \in \Sigma^* \colon \hat{\delta}(s, w) \in F \}$. No exemplo da Figura~\ref{fig:aut01} acima, a linguagem reconhecida por por $M_1$ é $L(M_1) = \{w \in \Sigma^* :  w$  tem número par de símbolos $\mathtt{a}\}$.
 
 \bigskip
 
@@ -355,9 +355,11 @@ Mais formalmente, dizemos que dois estados $q_1$ e $q_2$ (no mesmo autômato ou 
 
 Esse problema está intimamente relacionado com o problema de minimização de autômatos finitos determinísticos. Os primeiros algoritmos desenvolvidos para testar a equivalência de autômatos resolviam também o problema da minimização. Eles apareceram em~\cite{huffman} e~\cite{moore} e podem ser implementados sem muito esforço em tempo~$O(n^2)$, onde~$n$ é o número total de estados. O algoritmo mais eficiente conhecido para minimização de autômatos~\cite{hopcroft} executa em tempo~$O(n \log{n})$. Posteriormente Hopcroft e Karp~\cite{hopcroft_karp} desenvolveram um algoritmo linear para testar a equivalência de autômatos.
 
-Com a finalidade de contemplar uma maior variedade de exercícios e abranger uma fração maior do conteúdo coberto na disciplina MC3106, seria interessante se nosso sistema pudesse aceitar, como resposta para alguns exercícios, um autômato finito não determinístico (AFN) ou uma expressão regular. No entanto, determinar se dois AFNs (ou duas expressões regulares) são equivalentes é um problema \textsc{PSPACE}-completo (veja problema AL01 de~\cite{garey79}) e, portanto, muito difícil computacionalmente. Contudo, para um AFN-resposta não muito grande (até 25 estados) seria viável construir um AFD equivalente para que o algoritmo de Hopcroft e Karp pudesse então verificar se ele é equivalente ao AFD-gabarito armazenado no banco de dados do servidor.
+%Com a finalidade de contemplar uma maior variedade de exercícios e abranger uma fração maior do conteúdo coberto na disciplina MC3106, seria interessante se nosso sistema pudesse aceitar, como resposta para alguns exercícios, um autômato finito não determinístico (AFN) ou uma expressão regular. No entanto, determinar se dois AFNs (ou duas expressões regulares) são equivalentes é um problema \textsc{PSPACE}-completo (veja problema AL01 de~\cite{garey79}) e, portanto, muito difícil computacionalmente. Contudo, para um AFN-resposta não muito grande (até 25 estados) seria viável construir um AFD equivalente para que o algoritmo de Hopcroft e Karp pudesse então verificar se ele é equivalente ao AFD-gabarito armazenado no banco de dados do servidor.
 
-Neste projeto o aluno implementará todos os algoritmos envolvidos na discussão acima como parte de um sistema maior que descrevemos na próxima seção.
+%Neste projeto o aluno implementará todos os algoritmos envolvidos na discussão acima como parte de um sistema maior que descrevemos na próxima seção.
+
+Neste projeto será implementado todos os algoritmos envolvidos na discussão acima como parte de um sistema maior que descrevemos na próxima seção.
 
 
 
@@ -367,48 +369,51 @@ Neste projeto o aluno implementará todos os algoritmos envolvidos na discussão
 
 Como mencionamos anteriormente, a proposta deste projeto é a criação de um site que disponibilize uma lista de exercícios aos usuários -- que serão os alunos da disciplina MC3106 -- e que permita a correção automática desses exercícios. Esse site será semelhante aos sistemas de correção automática utilizados em eventos de maratona de programação, onde o competidor submete sua respostar para resolução de algum problema proposto, e o sistema analisa a resposta recebida e dá um retorno da submissão. Em nosso sistema, por meio de uma interface intuitiva, o usuário poderá ver a lista de exercícios e, para cada um deles, poderá consultar o seu estado: se ainda não foi resolvido, se há um rascunho de resposta salvo, se uma resposta já foi submetida, o número de submissões, e qual foi o conceito ou \emph{feedback} devolvido ao aluno em cada submissão.
 
-
-
 Ao clicar num exercício especifico, o aluno verá uma página com o título do exercício, o corpo do texto com a descrição do exercício que o ele deve resolver, e uma área dedicada para a confecção da resposta-autômato. Para a confecção desta resposta, usaremos como front-end um JavaScript desenvolvido e disponibilizado por Evan Wallace~\cite{evan} sob a licença MIT~\cite{mit} que, de maneira muito simples e intuitiva, permite a construção de diagramas de máquina de estados.
 
-O aluno então resolve o exercício da maneira tradicional e concebe um autômato como possível resposta. Em seguida ele poderá, com o auxílio do mouse e do teclado, inserir o diagrama de seu autômato no espaço designado, alterando-o quantas vezes achar necessário. O aluno tem a opção de salvar seu trabalho para continuar mais tarde e também de submetê-lo como resposta. Quando ele decidir submeter, a estrutura do autômato construído pelo aluno nesta interface será validada (por um script que decide se o diagrama corresponde a um AFD ou a um AFN conforme for pedido no exercício) e será enviada para o servidor.
+O aluno então resolve o exercício da maneira tradicional e concebe um autômato como possível resposta. Em seguida ele poderá, com o auxílio do mouse e do teclado, inserir o diagrama de seu autômato no espaço designado, alterando-o quantas vezes achar necessário. O aluno tem a opção de salvar seu trabalho para continuar mais tarde e também de submetê-lo como resposta. Quando ele decidir submeter, a estrutura do autômato construído pelo aluno nesta interface será validada (por um script que decide se o diagrama construído é de fato um AFD) e será enviada para o servidor.
 
-No servidor, será executado o programa que será implementado pelo bolsista com o algoritmo de Hopcroft e Karp para testar a equivalência de autômatos finitos determinísticos\footnote{Se o exercício for do   tipo que pede um AFN, o servidor se encarrega de convertê-lo num AFD   equivalente antes de fazer qualquer tipo de verificação. Se o   exercício pedir por uma expressão regular, o servidor deve primeiro   transformá-la num AFN, e depois num AFD.}. Se o autômato que o aluno construiu for equivalente ao AFD-gabarito armazenado no banco de dados, então o aluno terá resolvido o exercício corretamente. Se não forem equivalentes, podemos encontrar uma palavra que distingue os dois autômatos e enviar essa palavra ao aluno para que ele tenha um \emph{feedback} e um certificado de que sua resposta está incorreta. Examinando essa palavra com mais cuidado, o aluno poderá então perceber a razão pela qual seu autômato não reconhece a linguagem pedida. Ele poderá elaborar uma outra resposta-autômato e fazer uma nova submissão, de acordo com o número limite de submissões e a data final para a submissão de cada exercício como determinado previamente pelo administrador.
+No servidor, será executado o programa que será implementado pelo bolsista com o algoritmo de Hopcroft e Karp para testar a equivalência de autômatos finitos determinísticos. Se o autômato que o aluno construiu for equivalente ao AFD-gabarito armazenado no banco de dados, então o aluno terá resolvido o exercício corretamente. Se não forem equivalentes, podemos encontrar uma palavra que distingue os dois autômatos e enviar essa palavra ao aluno para que ele tenha um \emph{feedback} e um certificado de que sua resposta está incorreta. Examinando essa palavra com mais cuidado, o aluno poderá então perceber a razão pela qual seu autômato não reconhece a linguagem pedida. Ele poderá elaborar uma outra resposta-autômato e fazer uma nova submissão, de acordo com a data final para a submissão de cada exercício determinado previamente pelo administrador.
 
-Do ponto de vista do professor da disciplina, que será um administrador do sistema, pretendemos implementar as funcionalidades: criação e gerenciamento de turmas, gerenciamento do banco de questões e, por fim, visualização e exportação da planilha final de notas. 
+Do ponto de vista do professor da disciplina, que será um administrador do sistema, pretendemos implementar as seguintes funcionalidades: criação e gerenciamento de turmas, o gerenciamento de listas compostas de exercícios, gerenciamento do banco de questões para compor as listas e, por fim, visualização e exportação da planilha final de notas. 
 
- Para a implementação deste sistema, serão necessários conhecimentos das disciplinas Programação para WEB e Linguagens Formais e Autômatos, que o aluno proponente deste projeto já cursou na UFABC. Se houver tempo, confeccionaremos ainda outras ferramentas para correção automática de outras classes de exercícios envolvendo gramáticas livres de contexto e faremos a integração com o sistema. 
+Para a implementação deste sistema, serão necessários conhecimentos das disciplinas Programação para WEB e Linguagens Formais e Autômatos, que o aluno proponente deste projeto já cursou na UFABC. Se houver tempo, confeccionaremos ainda outras ferramentas para correção automática de outras classes de exercícios que a disciplina engloba e faremos a integração com o sistema. 
 
 
 
-\chapter {Objetivos ????}
+\chapter {Objetivos}
 
-\section {Gerais:}
-\begin{alineas}
-	\item Incentivar o gosto do bolsista pela pesquisa aplicada.
-	\item Desenvolver a maturidade do aluno em tópicos centrais de ciência da computação.
-	\item Incentivar e aprimorar as habilidades de programação do candidato.
-	\item Envolver o aluno em um projeto com fins de ensino e aprendizagem.
-\end{alineas}
+%\section {Gerais:}
 
-\section {Específicos:}
-
-\noindent Que o aluno implemente:
+%\noindent 
+Os Objetivos Gerais deste projeto são os seguintes:
 
 \begin{alineas}
-	\item o algoritmo de Moore para minimização e equivalência de AFDs;
-	\item o algoritmo de Hopcroft e Karp para testar a equivalência de AFDs;
-	\item o algoritmo de Hopcroft para minimização de AFD;
-	\item o algoritmo que transforma uma expressão regular num AFN;
-	\item o algoritmo que transforma um AFN num AFD;
-	\item um algoritmo envolvendo gramáticas livres de contexto (se o tempo permitir).
+	\item[$\bullet$] Incentivar o gosto do bolsista pela pesquisa aplicada.
+	\item[$\bullet$] Desenvolver a maturidade do aluno em tópicos centrais de ciência da computação.
+	\item[$\bullet$] Incentivar e aprimorar as habilidades de programação do candidato.
+	\item[$\bullet$] Envolver o aluno em um projeto com fins de ensino e aprendizagem.
 \end{alineas}
 
-Todos os itens citados fazem parte da finalidade deste projeto de implementar o sistema descrito, algo que também involve implementações de programas em JavaScript e C/C++ além de outras linguagens e tecnologias envolvidas na interfazce cliente/servidor como AJAX, PHP, MySQL, etc.
+%\section {Específicos:}
+
+%\noindent 
+Os Objetivos Específicos são que o aluno implemente:
+
+\begin{alineas}
+	\item[$\bullet$] o algoritmo de Moore para minimização e equivalência de AFDs;
+	\item[$\bullet$] o algoritmo de Hopcroft para minimização de AFD;
+	\item[$\bullet$] o algoritmo de Hopcroft e Karp para testar a equivalência de AFDs;
+%	\item o algoritmo que transforma uma expressão regular num AFN;
+%	\item o algoritmo que transforma um AFN num AFD;
+%	\item um algoritmo envolvendo gramáticas livres de contexto (se o tempo permitir).
+\end{alineas}
+
+Todos os itens citados fazem parte da finalidade deste projeto de implementar o sistema descrito, algo que também envolve implementações de programas em JavaScript e C/C++ além de outras linguagens e tecnologias envolvidas na interface cliente/servidor como HTMl, PHP, MySQL, etc.
 
 \chapter{Metodologia}
 
-Esta iniciação Cientifica será conduzida da seguinte forma. Num período inicial o aluno se preocupará em ler as seções relevantes das referências~\cite{sipser, ullman, linz}, a fim de criar familiaridade com o problema de equivalência, e abstrair os conceitos iniciais do algoritmo de minimização de autômatos finitos determinísticos. Será uma revisão de tópicos cobertos na disciplina de Linguagens Formais e Autômatos, que o aluno já cursou na UFABC.   
+Esta Iniciação Cientifica será conduzida da seguinte forma. Num período inicial o aluno se preocupará em ler as seções relevantes das referências~\cite{sipser},~\cite{ullman}~e~\cite{linz}, a fim de criar familiaridade com o problema de equivalência, e abstrair os conceitos iniciais do algoritmo de minimização de autômatos finitos determinísticos. Será uma revisão de tópicos cobertos na disciplina de Linguagens Formais e Autômatos, que o aluno já cursou na UFABC.   
 
 Passada a fase inicial, o aluno aprofundará seus estudos nos artigos~\cite{hopcroft} e~\cite{hopcroft_karp} que descrevem os algoritmos mais eficientes para minimização e equivalência de autômatos respectivamente.  À medida que o aluno for conhecendo os melhores algoritmos para cada problema, ele irá implementar o sistema, aplicando os conceitos e os algoritmos estudados. Uma outra parte considerável do projeto será dedicada a elaboração e compilação de exercícios (populando um banco de dados e/ou possivelmente elaborando scripts que geram exercícios automaticamente) e aos testes do sistema para que ele possa ser usado na UFABC já com a primeira turma de MC3106 após o término deste projeto.  
 
@@ -416,59 +421,123 @@ O orientador irá acompanhar seu progresso em reuniões semanais, quando o aluno
 
 
 
-\chapter{Cronograma de Execução}
+\chapter{Cronograma}
 
-O bolsista deverá dedicar a este projeto um mínimo de 20 horas por semana. O projeto irá se desenrolar conforme os itens abaixo.  
+O bolsista deverá dedicar a este projeto um mínimo de 20 horas por semana. O projeto irá se desenrolar conforme os itens abaixo:  
 
 \begin{alineas}
-	\item Leitura da bibliografia (capítulos de livros e artigos citados).
-	\item Implementação dos algoritmos que decidem a equivalência de dois AFDs em C/C++.
-	\item Implementação dos algoritmos de minimização de AFD (para armazenamento econômico dos gabaritos) em C/C++.
-	\item Design e construção do banco de dados de exercícios e gabaritos.
-	\item Adequação do script de Evan Wallace às necessidades deste projeto.
-	\item Implementação dos algoritmos que convertem uma expressão regular num AFN e um AFN num AFD.
-	\item Elaboração do relatório parcial.
-	\item Sistema de criação e gerenciamento de usuários.
-	\item Sistema de logs de submissões.
-	\item Finalização da versão para testes.
-	\item Elaboração do relatório final.
+%	\item Leitura da bibliografia (capítulos de livros e artigos citados).
+%	\item Implementação dos algoritmos que decidem a equivalência de dois AFDs em C/C++.
+%	\item Implementação dos algoritmos de minimização de AFD (para armazenamento econômico dos gabaritos) em C/C++.
+%	\item Design e construção do banco de dados de exercícios e gabaritos.
+%	\item Adequação do script de Evan Wallace às necessidades deste projeto.
+%	\item Implementação dos algoritmos que convertem uma expressão regular num AFN e um AFN num AFD.
+%	\item Elaboração do relatório parcial.
+%	\item Sistema de criação e gerenciamento de usuários.
+%	\item Sistema de logs de submissões.
+%	\item Finalização da versão para testes.
+%	\item Elaboração do relatório final.
+
+	\item[1.] Leitura da bibliografia (capítulos de livros e artigos citados).
+	\item[2.] Implementação dos algoritmos em C++.
+	\item[3.] Adequação do FSM Designer às necessidades deste projeto.
+	\item[4.] Elaboração do relatório parcial.
+    \item[5.] Desenvolvimento do sistema.
+	\begin{alineas}
+		\item[5.1.] Levantamento de requisitos, análise e projeto do sistema.
+		\item[5.2.] Implementação do sistema.
+	\end{alineas}
+	\item[6.] Confecção dos exercícios no sistema.
+	\item[7.] Aplicação numa turma experimental.
+	\item[8.] Elaboração do relatório final.
 \end{alineas}
 
 
-\noindent O andamento do projeto se dará conforme a Tabela~\ref{tableSS} abaixo (os números à esquerda indicam as tarefas enumeradas na seção anterior). O projeto será avaliado de acordo com os seguintes critérios:
+O andamento do projeto se dará conforme a Tabela~\ref{tab:cronograma} abaixo (os números à esquerda indicam as tarefas enumeradas na seção anterior). 
 
-\begin{alineas}
-	\item[(a)] desempenho do bolsista;
-	\item[(b)] adequação das atividades ao cronograma proposto.
-\end{alineas}
-
-%\begin{landscape}	
 \begin{table}[H]
-	\caption{Cronograma}
-	\centering
-	\begin{tabular}{|c||c|c|c|c|c|c|c|c|c|c|c|c|}
-		\hline
-		&ago&set&out&nov&dez&jan&fev&mar&abr&mai&jun&jul\\
-		\hline\hline
-		\textbf{1}  & x & x & x & x & x & x & x & x &   &   &   &   \\ % pesquisa bibliográfica
-		\textbf{2}  &   & x & x &   &   &   &   &   &   &   &   &   \\ % equivalência de AFDs
-		\textbf{3}  &   &   & x & x &   &   &   &   &   &   &   &   \\ % minimizacao AFD
-		\textbf{4}  &   &   &   & x & x & x & x & x & x &   &   &   \\ % banco de exercícios
-		\textbf{5}  &   &   &   &   & x & x &   &   &   &   &   &   \\ % adaptar script do E. Wallace
-		\textbf{6}  &   &   &   &   & x & x &   &   &   &   &   &   \\ % algoritmos de conversão
-		\textbf{7}  &   &   &   &   &   & x & x &   &   &   &   &   \\ % relat parc
-		\textbf{8}  &   &   &   &   &   &   &   & x & x &   &   &   \\ % sistema de usuários
-		\textbf{9}  &   &   &   &   &   &   &   &   & x & x &   &   \\ % sistema para log de submissões
-		\textbf{10} &   &   &   &   &   &   &   &   &   & x & x & x \\ % testes e finalização
-		\textbf{11} &   &   &   &   &   &   &   &   &   & x & x & x \\ % relat final
-		\hline
-	\end{tabular}
-	\label{tableSS}
+\caption{Cronograma}
+\centering
+	\begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c|c|}
+		\hline 
+%		   & 1º & 2º & 3 & 4º & 5º & 6º & 7º & 8º & 9º & 10º & 11º & 12º \\ 
+		   &ago&set&out&nov&dez&jan&fev&mar&abr&mai&jun&jul\\
+		\hline 
+		1  & x & x & x & x & x & x & x &  &  &  &  &  \\ 
+		2  & x & x & x & x &  &  &  &  &  &  &  &  \\ 
+		3  &  &  &  & x & x &  &  &  &  &  &  &  \\ 
+		4  &  &  &  &  & x & x & x &  &  &  &  &  \\ 
+		5  &  &  &  &  &  & x & x & x & x & x &  &  \\ 
+		5.1  &  &  &  &  &  & x &  &  &  &  &  &  \\ 
+		5.2  &  &  &  &  &  &  & x & x & x & x &  &  \\ 
+		6 &  &  &  &  &  &  &  &  & x & x &  &  \\ 
+		7  &  &  &  &  &  &  &  &  &  & x & x & x \\ 
+		8 &  &  &  &  &  &  &  &  & x & x & x & x \\ 
+		\hline 
+	\end{tabular} 
+\label{tab:cronograma}
 \end{table}
 
 
+%\begin{table}[H]
+%	\caption{Cronograma}
+%	\centering
+%	\begin{tabular}{|c||c|c|c|c|c|c|c|c|c|c|c|c|}
+%		\hline
+%		&ago&set&out&nov&dez&jan&fev&mar&abr&mai&jun&jul\\
+%		\hline\hline
+%		\textbf{1}  & x & x & x & x & x & x & x & x &   &   &   &   \\ % pesquisa bibliográfica
+%		\textbf{2}  &   & x & x &   &   &   &   &   &   &   &   &   \\ % equivalência de AFDs
+%		\textbf{3}  &   &   & x & x &   &   &   &   &   &   &   &   \\ % minimizacao AFD
+%		\textbf{4}  &   &   &   & x & x & x & x & x & x &   &   &   \\ % banco de exercícios
+%		\textbf{5}  &   &   &   &   & x & x &   &   &   &   &   &   \\ % adaptar script do E. Wallace
+%		\textbf{6}  &   &   &   &   & x & x &   &   &   &   &   &   \\ % algoritmos de conversão
+%		\textbf{7}  &   &   &   &   &   & x & x &   &   &   &   &   \\ % relat parc
+%		\textbf{8}  &   &   &   &   &   &   &   & x & x &   &   &   \\ % sistema de usuários
+%		\textbf{9}  &   &   &   &   &   &   &   &   & x & x &   &   \\ % sistema para log de submissões
+%		\textbf{10} &   &   &   &   &   &   &   &   &   & x & x & x \\ % testes e finalização
+%		\textbf{11} &   &   &   &   &   &   &   &   &   & x & x & x \\ % relat final
+%		\hline
+%	\end{tabular}
+%	\label{tableSS2}
+%\end{table}
 
-\chapter{Orçamento da Pesquisa}
+
+%O projeto será avaliado de acordo com os seguintes critérios:
+
+%\begin{alineas}
+%	\item[(a)] desempenho do bolsista;
+%	\item[(b)] adequação das atividades ao cronograma proposto.
+%\end{alineas}
+
+
+
+
+\chapter{Orçamento do Pesquisa}
+
+O Orçamento para a execução deste projeto pode ser vista pela tabela a abaixo.
+\begin{table}[H]
+  \caption{Orçamento}
+  \centering
+  \begin{tabular}{|r l|l|}
+    \hline 
+    \multicolumn{3}{|c|}{\textsc{CUSTEIO}} \\ 
+    \hline 
+    \multicolumn{3}{|l|}{\textbf{Serviços de Terceiro}} \\ 
+    \hline 
+    (5 meses) & Hospedagem do Site & R\$ 74,50* (R\$ 14,90 cada mês) \\ 
+    \hline 
+    (1 ano) & Registro de Domínio & R\$ 49,90*   \\ 
+    \hline 
+    \multicolumn{3}{|c|}{\textsc{~}} \\ 
+    \hline 
+    \multicolumn{2}{|l|}{\textbf{TOTAL}} & R\$ 124,40\\ 
+    \hline 
+  \end{tabular} 
+  \label{tab:orcamento}
+\end{table}
+
+* valores obtidos com base nos pacotes oferecidos no site LocaWeb\footnote{Disponível em \url{http://www.locaweb.com.br/hospedagem-de-sites/}}.
 
 %\chapter{Bibliografia}
 
