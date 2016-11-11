@@ -145,7 +145,7 @@
     	pdfsubject={\imprimirpreambulo},
 	    pdfcreator={LaTeX with abnTeX2},
 		pdfkeywords={autômato finito}{equivalência de autômatos}{minimização de autômato}{programação para web}, 
-		colorlinks=true,       		% false: boxed links; true: colored links
+		colorlinks=false,       		% false: boxed links; true: colored links
     	linkcolor=blue,          	% color of internal links
     	citecolor=blue,        		% color of links to bibliography
     	filecolor=magenta,      	% color of file links
@@ -343,8 +343,9 @@ Cada um destes tipos de exercícios possui centenas de casos particulares que os
 Apesar de visivelmente maior e mais complexo que $M_1$, este autômato reconhece a mesma linguagem que o autômato $M_1$ da Figura~\ref{fig:aut01}. É possível demonstrar que, para cada linguagem regular, existem infinitos autômatos que a reconhecem. Como decidir então se o autômato-resposta dado por um aluno reconhece a linguagem pedida? No caso do sistema que iremos desenvolver isso se reduz ao seguinte problema:
 \bigskip
 
+{\large
 \noindent \textbf{Problema:} Decidir se dois autômatos finitos determinísticos reconhecem a mesma linguagem.
-
+}
 
 
 \section {Breve descrição do método}
@@ -367,7 +368,7 @@ Neste projeto será implementado todos os algoritmos envolvidos na discussão ac
 
 \section {Breve descrição do sistema}
 
-Como mencionamos anteriormente, a proposta deste projeto é a criação de um site que disponibilize uma lista de exercícios aos usuários -- que serão os alunos da disciplina MC3106 -- e que permita a correção automática desses exercícios. Esse site será semelhante aos sistemas de correção automática utilizados em eventos de maratona de programação, onde o competidor submete sua respostar para resolução de algum problema proposto, e o sistema analisa a resposta recebida e dá um retorno da submissão. Em nosso sistema, por meio de uma interface intuitiva, o usuário poderá ver a lista de exercícios e, para cada um deles, poderá consultar o seu estado: se ainda não foi resolvido, se há um rascunho de resposta salvo, se uma resposta já foi submetida, o número de submissões, e qual foi o conceito ou \emph{feedback} devolvido ao aluno em cada submissão.
+Como mencionamos anteriormente, a proposta deste projeto é a criação de um site que disponibilize uma lista de exercícios aos usuários -- que serão os alunos da disciplina MC3106 -- e que permita a correção automática desses exercícios. Esse site será semelhante aos sistemas de correção automática utilizados em eventos de maratona de programação, onde o competidor submete sua respostar para resolução de algum problema proposto, e o sistema analisa a resposta recebida e dá um retorno da submissão. Em nosso sistema, por meio de uma interface intuitiva, o usuário poderá ver a lista de exercícios e, para cada um deles, poderá consultar o seu estado: se ainda não foi resolvido, se há um rascunho de resposta salvo, se uma resposta já foi submetida, e qual foi o conceito ou \emph{feedback} devolvido ao aluno em cada submissão.
 
 Ao clicar num exercício especifico, o aluno verá uma página com o título do exercício, o corpo do texto com a descrição do exercício que o ele deve resolver, e uma área dedicada para a confecção da resposta-autômato. Para a confecção desta resposta, usaremos como front-end um JavaScript desenvolvido e disponibilizado por Evan Wallace~\cite{evan} sob a licença MIT~\cite{mit} que, de maneira muito simples e intuitiva, permite a construção de diagramas de máquina de estados.
 
@@ -441,15 +442,14 @@ O bolsista deverá dedicar a este projeto um mínimo de 20 horas por semana. O p
 	\item[1.] Leitura da bibliografia (capítulos de livros e artigos citados).
 	\item[2.] Implementação dos algoritmos em C++.
 	\item[3.] Adequação do FSM Designer às necessidades deste projeto.
-	\item[4.] Elaboração do relatório parcial.
-    \item[5.] Desenvolvimento do sistema.
+    \item[4.] Desenvolvimento do sistema.
 	\begin{alineas}
-		\item[5.1.] Levantamento de requisitos, análise e projeto do sistema.
-		\item[5.2.] Implementação do sistema.
+		\item[4.1.] Levantamento de requisitos, análise e projeto do sistema.
+		\item[4.2.] Implementação do sistema.
 	\end{alineas}
-	\item[6.] Confecção dos exercícios no sistema.
-	\item[7.] Aplicação numa turma experimental.
-	\item[8.] Elaboração do relatório final.
+	\item[5.] Confecção dos exercícios no sistema.
+	\item[6.] Aplicação numa turma experimental.
+	\item[7.] Elaboração do relatório final.
 \end{alineas}
 
 
@@ -466,13 +466,12 @@ O andamento do projeto se dará conforme a Tabela~\ref{tab:cronograma} abaixo (o
 		1  & x & x & x & x & x & x & x &  &  &  &  &  \\ 
 		2  & x & x & x & x &  &  &  &  &  &  &  &  \\ 
 		3  &  &  &  & x & x &  &  &  &  &  &  &  \\ 
-		4  &  &  &  &  & x & x & x &  &  &  &  &  \\ 
-		5  &  &  &  &  &  & x & x & x & x & x &  &  \\ 
-		5.1  &  &  &  &  &  & x &  &  &  &  &  &  \\ 
-		5.2  &  &  &  &  &  &  & x & x & x & x &  &  \\ 
-		6 &  &  &  &  &  &  &  &  & x & x &  &  \\ 
-		7  &  &  &  &  &  &  &  &  &  & x & x & x \\ 
-		8 &  &  &  &  &  &  &  &  & x & x & x & x \\ 
+		4  &  &  &  &  &  & x & x & x & x & x &  &  \\ 
+		4.1  &  &  &  &  &  & x &  &  &  &  &  &  \\ 
+		4.2  &  &  &  &  &  &  & x & x & x & x &  &  \\ 
+		5 &  &  &  &  &  &  &  &  & x & x &  &  \\ 
+		6  &  &  &  &  &  &  &  &  &  & x & x & x \\ 
+		7 &  &  &  &  &  &  &  &  & x & x & x & x \\ 
 		\hline 
 	\end{tabular} 
 \label{tab:cronograma}
@@ -537,7 +536,7 @@ O Orçamento para a execução deste projeto pode ser vista pela tabela a abaixo
   \label{tab:orcamento}
 \end{table}
 
-\noindent * valores obtidos com base nos pacotes oferecidos no site da LocaWeb\footnote{Acessado dia 29/10/2016, disponível em \url{http://www.locaweb.com.br/hospedagem-de-sites/}}.
+\noindent * valores obtidos com base nos pacotes oferecidos no site da empresa LocaWeb\footnote{Acessado dia 29/10/2016, disponível em \url{http://www.locaweb.com.br/hospedagem-de-sites/}}.
 
 
 
