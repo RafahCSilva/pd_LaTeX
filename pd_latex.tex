@@ -127,7 +127,7 @@
 \tipotrabalho{Projeto de Pesquisa}
 % O preambulo deve conter o tipo do trabalho, o objetivo, 
 % o nome da instituição e a área de concentração 
-\preambulo{Projeto de pesquisa em conformidade com as normas ABNT apresentado à Disciplina de Projeto Dirigido.}
+\preambulo{Projeto de pesquisa apresentado à Disciplina de Projeto Dirigido do curso de Bacharelado de Ciência e Tecnologia..}
 % ---
 
 % ---
@@ -260,7 +260,9 @@
 \chapter*[Resumo]{Resumo}
  \noindent Resolver exercícios é fundamental para um aluno fixar os conceitos apresentados em aula. Por outro lado, ter seus exercícios corrigidos também é muito importante, para que ele possa avaliar o seu aprendizado. Na UFABC, a disciplina de Linguagens Formais e Autômatos contempla vários exercícios que admitem infinitas respostas, o que torna a correção deles praticamente impossível, principalmente quando as turmas são grandes. O objetivo deste projeto é a criação e implementação de um sistema para aplicação e correção automática de exercícios envolvendo autômatos finitos determinísticos. Através do estudo de métodos e algoritmos presentes na literatura, será possível implementar o teste de equivalência entre o autômato-resposta do aluno e o autômato-gabarito previamente armazenado no banco de dados. E ao final do projeto, o sistema será utilizado em caráter experimental numa turma da UFABC da disciplina de Linguagens Formais e Autômatos, afim de testar a sua qualidade. E ao final da disciplina, a nota que os alunos obterão ao revolver os exercícios do sistema ajudarão a compor o conceito final de cada um na disciplina.
 
-\textbf{Palavras-chave}: autômato finito, equivalência de autômatos, minimização de autômato, programação para web.
+\bigskip
+
+\noindent\textbf{Palavras-chave}: autômato finito, equivalência de autômatos, minimização de autômato, programação para web.
 
 
 \chapter{Introdução}
@@ -310,7 +312,7 @@ No autômato da Figura~\ref{fig:aut01}, temos $Q = \{S_1, S_2\}$, $\Sigma = \{a,
 \end{table}
 
 
-Nesse exemplo, se o AFD $M_1$ é alimentado com a palavra \textbf{\texttt{aabab}}, ele irá começar no estado $S_1$ e irá percorrer os estados $S_2$, $S_1$, $S_1$, $S_2$, $S_2$ nesta ordem, e irá rejeitar a palavra dada (pois o último estado $S_2 \not\in F$). Se, para uma outra palavra $w$, a simulação tivesse terminado em $S_1$ (que pertence a $F$) diríamos que o autômato aceita a palavra $w$. Mais formalmente, se $M_1 = (Q, \Sigma, \delta, s, F)$ é um autômato finito determinístico, dizemos que $M_1$ \emph{aceita} $w$ se $\hat{\delta}(s, w) \in F$ e que $M_1$ \emph{rejeita} $w$ caso contrário.
+Nesse exemplo, se o AFD $M_1$ é alimentado com a palavra \textbf{\texttt{aabab}}, ele irá começar no estado $S_1$ e irá percorrer os estados $S_2$, $S_1$, $S_1$, $S_2$, $S_2$ nesta ordem, e irá rejeitar a palavra dada (pois o último estado $S_2 \not\in F$). Se, para uma outra palavra $w$, a simulação tivesse terminado em $S_1$ (que pertence a $F$) =íamos que o autômato aceita a palavra $w$. Mais formalmente, se $M_1 = (Q, \Sigma, \delta, s, F)$ é um autômato finito determinístico, dizemos que $M_1$ \emph{aceita} $w$ se $\hat{\delta}(s, w) \in F$ e que $M_1$ \emph{rejeita} $w$ caso contrário.
 
 A \emph{linguagem reconhecida} por um autômato $M_1 = (Q, \Sigma, \delta, s, F)$ é o conjunto de palavras que são aceitas por esse autômato, ou seja, é definida pelo conjunto $ L(M_1) = \{w \in \Sigma^* \colon \hat{\delta}(s, w) \in F \}$. No exemplo da Figura~\ref{fig:aut01} acima, a linguagem reconhecida por por $M_1$ é $L(M_1) = \{w \in \Sigma^* :  w$  tem número par de símbolos $\mathtt{a}\}$.
 
@@ -414,7 +416,7 @@ Todos os itens citados fazem parte da finalidade deste projeto de implementar o 
 
 \chapter{Metodologia}
 
-Esta Iniciação Cientifica será conduzida da seguinte forma. Num período inicial o aluno se preocupará em ler as seções relevantes das referências~\cite{sipser},~\cite{ullman}~e~\cite{linz}, a fim de criar familiaridade com o problema de equivalência, e abstrair os conceitos iniciais do algoritmo de minimização de autômatos finitos determinísticos. Será uma revisão de tópicos cobertos na disciplina de Linguagens Formais e Autômatos, que o aluno já cursou na UFABC.   
+Este projeto será conduzida da seguinte forma. Num período inicial o aluno se preocupará em ler as seções relevantes das referências~\cite{sipser},~\cite{ullman}~e~\cite{linz}, a fim de criar familiaridade com o problema de equivalência, e abstrair os conceitos iniciais do algoritmo de minimização de autômatos finitos determinísticos. Será uma revisão de tópicos cobertos na disciplina de Linguagens Formais e Autômatos, que o aluno já cursou na UFABC.   
 
 Passada a fase inicial, o aluno aprofundará seus estudos nos artigos~\cite{hopcroft} e~\cite{hopcroft_karp} que descrevem os algoritmos mais eficientes para minimização e equivalência de autômatos respectivamente.  À medida que o aluno for conhecendo os melhores algoritmos para cada problema, ele irá implementar o sistema, aplicando os conceitos e os algoritmos estudados. Uma outra parte considerável do projeto será dedicada a elaboração e compilação de exercícios (populando um banco de dados e/ou possivelmente elaborando scripts que geram exercícios automaticamente) e aos testes do sistema para que ele possa ser usado na UFABC já com a primeira turma de MC3106 após o término deste projeto.  
 
